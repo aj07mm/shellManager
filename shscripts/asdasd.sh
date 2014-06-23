@@ -1,1 +1,1 @@
-asdasd
+eu sou um script

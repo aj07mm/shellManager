@@ -8,9 +8,10 @@
 	require('controller/MainController.php');
 	$foo = new Scripts;
 	$controller = new MainController;
+	//$controller->getScript();
 ?>
 
-<html>
+<html ng-app="myApp">
 <head>
 	<title></title>
 </head>
@@ -33,5 +34,5 @@
 	<footer></footer>
 </body>
 </html>
-
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 <script type="text/javascript" src="assets/js/app/main.js"></script>
