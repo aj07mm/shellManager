@@ -5,7 +5,6 @@ class MainController{
 	const SCRIPTS_PATH = "shscripts";
 
 	public function __construct(){
-		echo self::SCRIPTS_PATH;
 	}
 
 	public function actionIndex(){
