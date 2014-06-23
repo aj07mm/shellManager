@@ -1,8 +1,14 @@
+body{
+	padding: 10px;
+	background-color: #55D992;
+}
+
 section{
 	float: left;
 	background-color:#81F9B8;
 	width:50%;
 	height:90%;
+	overflow-x: auto;
 }
 aside{
 	float: left;

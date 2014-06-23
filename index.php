@@ -18,11 +18,12 @@
 <body>
 	<header></header>
 	<nav></nav>
-	<section>
+	<section ng-controller="ScriptCtrl">
+		{{ avengers.name }}
 		<ul>
-			<li class="script-tag"><?php echo $foo->listAllScripts()[0]; ?></li>
-			<li class="script-tag"><?php echo $foo->listAllScripts()[1]; ?></li>
-			<li class="script-tag"><?php echo $foo->listAllScripts()[2]; ?></li>
+			<?php  foreach($foo->listAllScripts() as $value){ ?>
+				<li ng-click="requestAjax()" class="script-tag"><?php echo $value; ?></li>
+			<?php }?>
 		</ul>
 	</section>
 	<aside>

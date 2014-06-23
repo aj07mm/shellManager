@@ -5,6 +5,6 @@ class Scripts{
 	public function __construct(){}
 
 	public function listAllScripts(){
-		return scandir('shscripts');		
+		return array_slice(scandir('shscripts'),2);		
 	}
 }
