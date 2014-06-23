@@ -9,5 +9,12 @@ class MainController{
 		//$this->render('index.php');
 	}
 
+	public function actionGetScript(){
+
+		$filename = $_REQUEST['filename'];
+		//$filepath = __DIR__.
+
+	}
+
 
 }
