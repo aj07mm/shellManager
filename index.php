@@ -23,7 +23,7 @@
 			{{ avengers.name }}
 			<ul>
 				<?php  foreach($foo->listAllScripts() as $value){ ?>
-					<li ng-click="requestAjax()" class="script-tag"><?php echo $value; ?></li>
+					<li ng-click="requestAjax(this)"  class="script-tag"><?php echo $value; ?></li>
 				<?php }?>
 			</ul>
 		</section>
