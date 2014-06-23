@@ -12,9 +12,8 @@ class MainController{
 		//$this->render('index.php');
 	}
 
-	public function getScript(){
+	public function getScript($filename){
 
-		$filename = $_REQUEST['filename'];
 		$filepath = self::SCRIPTS_PATH.'/'.$filename;
 		if(file_exists($filepath)){
 			echo readfile($filepath);

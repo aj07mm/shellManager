@@ -18,20 +18,23 @@
 <body>
 	<header></header>
 	<nav></nav>
-	<section ng-controller="ScriptCtrl">
-		{{ avengers.name }}
-		<ul>
-			<?php  foreach($foo->listAllScripts() as $value){ ?>
-				<li ng-click="requestAjax()" class="script-tag"><?php echo $value; ?></li>
-			<?php }?>
-		</ul>
-	</section>
-	<aside>
-		<div>
-			<h2></h2>
-		</div>
-		<textarea id="script-content"></textarea>
-	</aside>
+	<section ng-controller="ScriptCtrl" class="section-container">
+		<section class="section-child">
+			{{ avengers.name }}
+			<ul>
+				<?php  foreach($foo->listAllScripts() as $value){ ?>
+					<li ng-click="requestAjax()" class="script-tag"><?php echo $value; ?></li>
+				<?php }?>
+			</ul>
+		</section>
+		<aside>
+			<div>
+				<h2></h2>
+			</div>
+			<textarea ng-model="data" id="script-content"></textarea>
+		</aside>
+		</section>
+	</section >
 	<footer></footer>
 </body>
 </html>

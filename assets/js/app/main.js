@@ -18,7 +18,8 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 		$http({
 		    url: "http://localhost/shellManager/api.php",
 		    method: "POST",
-		    data: { filename:"asdasd.sh"}
+		    data: {filename:"asdasd.sh"},
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 		}).success(function(data, status, headers, config) {
 		    $scope.data = data;
 		}).error(function(data, status, headers, config) {
@@ -26,10 +27,6 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 		});
 	}
 );
-
-
-//myApp
-
 
 /*
 document.addEventListener("DOMContentLoaded", function(){
