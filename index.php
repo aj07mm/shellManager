@@ -47,7 +47,6 @@
 </html>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/cssConsole.min.js"></script>
 <script type="text/javascript" src="assets/js/app/main.js"></script>
 
