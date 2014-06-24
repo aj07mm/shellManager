@@ -1,7 +1,4 @@
-<link rel="stylesheet" type="text/css" href="assets\css\normalize.css">
-<link rel="stylesheet" type="text/css" href="assets\css\foundation.min.css">
-<link rel="stylesheet" type="text/css" href="assets\css\app\main.css">
-
+<!DOCTYPE html>
 <?php 
 	//require('vendor/autoload.php');
 	require('model/Scripts.php');
@@ -14,6 +11,10 @@
 <html ng-app="myApp">
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/foundation.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/app/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/cssConsole.css">
 </head>
 <body>
 	<header></header>
@@ -31,9 +32,13 @@
 		</section>
 		<aside>
 			<div>
-				<h2></h2>
+				<h2 class="filename-header">{{filename_header}}</h2>
 			</div>
-			<textarea ng-model="data" id="script-content"></textarea>
+			
+			<form action="api.php" method="POST">
+				<textarea ng-model="data" id="script-content"></textarea>
+				<input type="submit" value="ENVIAR">	
+			</form>
 		</aside>
 		</section>
 	</section >
@@ -41,4 +46,9 @@
 </body>
 </html>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/cssConsole.min.js"></script>
 <script type="text/javascript" src="assets/js/app/main.js"></script>
+
+

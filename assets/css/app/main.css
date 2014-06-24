@@ -15,17 +15,26 @@ body{
 	height: 90%;	
 }
 
+.filename-header{
+	padding-left: 10px;
+}
+
 aside{
 	float: left;
 	background-color:#55D992;
 	width:50%;
 	height:90%;
 }
-aside>textarea{
+aside textarea{
 	margin: 10px;
 	width: 94%;
-	height: 95%;
+	height: 80%;
 }
+
+aside input[type='submit']{
+	float: right;
+}
+
 footer{
 	float:left;
 	width: 100%;

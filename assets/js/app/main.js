@@ -12,7 +12,7 @@ myApp.factory('Avengers', function(){
 myApp.controller("ScriptCtrl",function($scope,$http){
 
 		$scope.requestAjax = function(filename){
-
+			$scope.filename_header = filename;
 			$http({
 			    url: "http://localhost/shellManager/api.php",
 			    method: "POST",
@@ -29,3 +29,5 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 		
 	}
 );
+
+$('textarea').cssConsole();
