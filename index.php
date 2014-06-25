@@ -5,7 +5,6 @@
 	require('controller/MainController.php');
 	$foo = new Scripts;
 	$controller = new MainController;
-	//$controller->getScript();
 ?>
 
 <html ng-app="myApp">

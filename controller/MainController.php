@@ -3,11 +3,12 @@
 class MainController{
 	
 	const SCRIPTS_PATH = "shscripts";
+    private $allowedExtensions = array('sh', 'zsh', 'bash');
 
-	public function __construct(){
+	public function __construct() {
 	}
 
-	public function actionIndex(){
+	public function actionIndex() {
 		//$this->render('index.php');
 	}
 
@@ -15,13 +16,26 @@ class MainController{
 
 		$filepath = self::SCRIPTS_PATH.'/'.$filename;
 
-		if(file_exists($filepath)) {
-            $fh = fopen($filepath, "r");
-            $data = fread($fh, filesize($filepath));
-            fclose($fh);
-            echo $data;
-		} else
-			echo false;
+
+		if( self::isValidExtension($filename) ) {
+	
+			if(file_exists($filepath)) {
+	            $fh = fopen($filepath, "r");
+	            $data = fread($fh, filesize($filepath));
+	            fclose($fh);
+	            return $data;
+			} 
+
+		} else {
+			return false;
+		}	
+
+
+	}
+
+	public function isValidExtension($filename) {
+		$fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
+		return in_array($fileExtension, $this->allowedExtensions);
 	}
 
 

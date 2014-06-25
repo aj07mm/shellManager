@@ -1,10 +1,10 @@
 <?php
 
-class Scripts{
+class Scripts {
 
 	public function __construct(){}
 
-	public function listAllScripts(){
+	public function listAllScripts() {
 		return array_slice(scandir('shscripts'),2);		
 	}
 }
