@@ -30,4 +30,4 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 	}
 );
 
-$('textarea').cssConsole();
+$('#script-content').cssConsole();

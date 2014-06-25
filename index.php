@@ -14,15 +14,16 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/foundation.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/app/main.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/cssConsole.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/cssConsoleCustom.css">
 </head>
 <body>
 	<header></header>
 	<nav></nav>
 	<section ng-controller="ScriptCtrl" class="section-container">
 		
-		<section class="section-child">
+		<section class="row">
 			{{ avengers.name }}
-			<ul>
+			<ul class="large-6 small-6 columns">
 				<?php  foreach($foo->listAllScripts() as $value){ ?>
 					<li ng-click="requestAjax('<?php echo $value; ?>')" ng-data class="script-tag">
 						<?php echo $value; ?>
@@ -30,20 +31,18 @@
 				<?php }?>
 			</ul>
 		</section>
-		
-		<aside>
-			<div>
-				<h2 class="filename-header">{{filename_header}}</h2>
+		<br />
+		<aside class="row">
+			<div class="large-12 columns">
+				<span id="fileHeader">{{filename_header}}</span>
+				<form action="api.php" method="POST">
+					<textarea id="script-content" ng-model="data"></textarea>
+					<input type="submit" class="button small-3" value="ENVIAR">	
+				</form>
 			</div>
-			
-			<form action="api.php" method="POST">
-				<textarea ng-model="data" id="script-content"></textarea>
-				<input type="submit" value="ENVIAR">	
-			</form>
 		</aside>
 
-	</section>
-	
+	</section>	
 	<footer></footer>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

@@ -19,6 +19,10 @@ body{
 	padding-left: 10px;
 }
 
+#fileHeader {
+	margin: 10px	;
+}
+
 aside{
 	float: left;
 	background-color:#55D992;
