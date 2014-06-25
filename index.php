@@ -19,6 +19,7 @@
 	<header></header>
 	<nav></nav>
 	<section ng-controller="ScriptCtrl" class="section-container">
+		
 		<section class="section-child">
 			{{ avengers.name }}
 			<ul>
@@ -29,6 +30,7 @@
 				<?php }?>
 			</ul>
 		</section>
+		
 		<aside>
 			<div>
 				<h2 class="filename-header">{{filename_header}}</h2>
@@ -39,8 +41,9 @@
 				<input type="submit" value="ENVIAR">	
 			</form>
 		</aside>
-		</section>
-	</section >
+
+	</section>
+	
 	<footer></footer>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
