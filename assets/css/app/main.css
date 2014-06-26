@@ -3,6 +3,11 @@ body{
 	background-color: #55D992;
 }
 
+.section-container{
+	width: 100%;
+	height: 90%;	
+}
+
 .section-child{
 	float: left;
 	background-color:#81F9B8;
@@ -10,17 +15,18 @@ body{
 	height:90%;
 	overflow-x: auto;
 }
-.section-container{
-	width: 100%;
-	height: 90%;	
-}
+
+	.section-child > ol > li{
+		text-decoration: underline;
+	}
+
+	.section-child > ol > li:hover{
+		color: blue;
+		cursor: pointer;
+	}
 
 .filename-header{
-	padding-left: 10px;
-}
-
-#fileHeader {
-	margin: 10px	;
+	margin: 0px 0px 0px 10px;
 }
 
 aside{
@@ -33,6 +39,8 @@ aside textarea{
 	margin: 10px;
 	width: 94%;
 	height: 80%;
+	color: yellow;
+	background-color: black;
 }
 
 aside input[type='submit']{

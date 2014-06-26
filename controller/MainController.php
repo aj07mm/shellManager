@@ -1,12 +1,14 @@
 <?php
 
-class MainController{
+require('components/AppHelper.php');
+
+class MainController extends AppHelper{
 	
-	const SCRIPTS_PATH = "shscripts";
     private $allowedExtensions = array('sh', 'zsh', 'bash');
 
 	public function __construct() {
 	}
+
 
 	public function actionIndex() {
 		//$this->render('index.php');
@@ -14,8 +16,7 @@ class MainController{
 
 	public function getScript($filename) {
 
-		$filepath = self::SCRIPTS_PATH.'/'.$filename;
-
+		$filepath = parent::filePath($filename);
 
 		if( self::isValidExtension($filename) ) {
 	
@@ -29,7 +30,10 @@ class MainController{
 		} else {
 			return false;
 		}	
+	}
 
+	public function saveScript($filename,$content){
+		return 'foo';
 
 	}
 

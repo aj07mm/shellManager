@@ -17,6 +17,7 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 			    url: "http://localhost/shellManager/api.php",
 			    method: "POST",
 			    data: {
+			    	action:'getScript',
 			    	filename: filename
 			    }
 			}).success(function(data, status, headers, config) {
@@ -26,8 +27,24 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 			});
 		};
 
+		$scope.saveScript = function(content){
+
+			$http({
+			    url: "http://localhost/shellManager/api.php",
+			    method: "POST",
+			    data: {
+			    	action:'saveScript',
+			    	filename: $scope.filename_header,
+			    	content: content
+			    }
+			}).success(function(data, status, headers, config) {
+			    //$scope.data = data;
+			    console.log(data);
+			}).error(function(data, status, headers, config) {
+			   // $scope.status = status;
+			});
+		};
+
 		
 	}
 );
-
-$('#script-content').cssConsole();

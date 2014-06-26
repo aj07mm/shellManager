@@ -3,7 +3,17 @@
 
 	$main = new MainController;
 	$foo = file_get_contents("php://input");
-	echo $main->getScript(json_decode($foo)->filename);	
+	$foo = json_decode($foo);
+
+	switch($foo->action){
+		case 'getScript':
+			echo $main->getScript($foo->filename);	
+		break;
+
+		case 'saveScript':
+			echo $main->saveScript($foo->filename,$foo->content);	
+		break;
+	}
 	
 	
 
