@@ -8,6 +8,18 @@ myApp.factory('Avengers', function(){
 	return Avengers;
 });
 
+myApp.directive("file", function(){
+		return {
+			restrict: "A",//attribute
+			link: function(scope,element){
+				element.bind('click', function(evt){
+					this.style.color='green';
+				});
+			}
+		}
+})
+
+
 //como passar Avengers para dentro do controller ???
 myApp.controller("ScriptCtrl",function($scope,$http){
 

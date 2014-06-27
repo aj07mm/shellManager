@@ -5,7 +5,7 @@
 	<section class="section-child">
 		<ol>
 			<?php  foreach($model->listAllScripts() as $value){ ?>
-				<li ng-click="requestAjax('<?php echo $value; ?>')" ng-data class="script-tag">
+				<li ng-click="requestAjax('<?php echo $value; ?>')" file ng-data class="script-tag">
 					<?php echo $value; ?>
 				</li>
 			<?php }?>
@@ -18,6 +18,5 @@
 			<input ng-click="saveScript(data)" type="submit" class="button" value="Save">	
 			<input ng-click="runScript(data)" type="submit" class="button" value="Run">	
 		</div>
-		
 	</aside>
 </section>	

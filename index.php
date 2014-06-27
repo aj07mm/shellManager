@@ -16,6 +16,7 @@
 	</head>
 	<body>
 		<header></header>
+		<div id="container_id"></div>
 		<?php 
 			$app_controller->render('index',array(
 				'model'=>$model
@@ -23,6 +24,7 @@
 		?>
 	<footer></footer>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+	<script type="text/javascript" src="assets/js/filetree/jquery.js"></script>
 	<script type="text/javascript" src="assets/js/app/main.js"></script>
 </body>
 </html>
