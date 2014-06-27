@@ -1,7 +1,10 @@
+<?php   
+	/* $model Scripts */
+?>
 <section ng-controller="ScriptCtrl" class="section-container">
 	<section class="section-child">
 		<ol>
-			<?php  foreach($foo->listAllScripts() as $value){ ?>
+			<?php  foreach($model->listAllScripts() as $value){ ?>
 				<li ng-click="requestAjax('<?php echo $value; ?>')" ng-data class="script-tag">
 					<?php echo $value; ?>
 				</li>
@@ -10,9 +13,11 @@
 	</section>
 	<aside>
 		<h2 class="filename-header">{{filename_header}}</h2>
-		<form ng-submit="saveScript(data)">
-			<textarea id="script-content" ng-model="data"></textarea>
-			<input type="submit" class="button" value="ENVIAR">	
-		</form>
+		<textarea id="script-content" ng-model="data"></textarea>
+		<div style="padding-right:22px;">
+			<input ng-click="saveScript(data)" type="submit" class="button" value="Save">	
+			<input ng-click="runScript(data)" type="submit" class="button" value="Run">	
+		</div>
+		
 	</aside>
 </section>	

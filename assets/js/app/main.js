@@ -38,10 +38,26 @@ myApp.controller("ScriptCtrl",function($scope,$http){
 			    	content: content
 			    }
 			}).success(function(data, status, headers, config) {
-			    //$scope.data = data;
+			    data == 1 ? alert('script salvo com sucesso') : alert('ocorreu um erro ao salvar o script');
+			}).error(function(data, status, headers, config) {
+			    $scope.status = status;
+			});
+		};
+
+		$scope.runScript = function(content){
+
+			$http({
+			    url: "http://localhost/shellManager/api.php",
+			    method: "POST",
+			    data: {
+			    	action:'runScript',
+			    	filename: $scope.filename_header,
+			    	content: content
+			    }
+			}).success(function(data, status, headers, config) {
 			    console.log(data);
 			}).error(function(data, status, headers, config) {
-			   // $scope.status = status;
+			    $scope.status = status;
 			});
 		};
 

@@ -11,7 +11,11 @@
 		break;
 
 		case 'saveScript':
-			echo $main->saveScript($foo->filename,$foo->content);	
+			echo (int)$main->saveScript($foo->filename,$foo->content);	
+		break;
+
+		case 'runScript':
+			echo $main->runScript($foo->filename,$foo->content);	
 		break;
 	}
 	

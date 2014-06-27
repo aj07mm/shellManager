@@ -6,7 +6,10 @@
 		public function __construct(){}
 
 		public function render($viewname,$params){
-			$foo = $params['foo'];
+
+			foreach($params as $key => $value){
+				$$key = $value;	
+			}
 
 			require(self::VIEW_PATH.'/'.$viewname.'.php');
 

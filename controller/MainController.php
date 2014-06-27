@@ -33,7 +33,38 @@ class MainController extends AppHelper{
 	}
 
 	public function saveScript($filename,$content){
-		return 'foo';
+
+		$filepath = parent::filePath($filename);
+
+		if(file_exists($filepath)) {
+            
+			$write_file = false;
+
+            if(file_put_contents($filepath,$content)){
+            	$write_file = true;
+            }
+
+            return $write_file ?: false;
+            
+		} 
+
+	}
+
+	public function runScript($filename,$content){
+
+		$filepath = parent::filePath($filename);
+
+		if(file_exists($filepath)) {
+            
+			$exec_file = false;
+
+            if(shell_exec($content)){
+            	$exec_file = true;
+            }
+
+            return $exec_file ?: (int)false;
+            
+		} 
 
 	}
 

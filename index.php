@@ -2,7 +2,7 @@
 	require('model/Scripts.php');
 	require('controller/MainController.php');
 	require('controller/AppController.php');
-	$foo = new Scripts;
+	$model = new Scripts;
 	$controller = new MainController;
 	$app_controller = new AppController;
 ?>
@@ -18,7 +18,7 @@
 		<header></header>
 		<?php 
 			$app_controller->render('index',array(
-				'foo'=>$foo
+				'model'=>$model
 			));
 		?>
 	<footer></footer>
