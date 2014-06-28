@@ -1,12 +1,35 @@
 <?php
+    require('components/ScriptHelper.php');
 
-class Scripts {
-	
-	private $allowedExtensions = array('sh', 'zsh', 'bash');
+    //TODO implementar singleton
+class Scripts extends ScriptHelper {
 
-	public function __construct(){}
+    private $totalValidScripts;
+
+	public function __construct() { }
 
 	public function listAllScripts() {
+		$files = scandir('shscripts',SCANDIR_SORT_DESCENDING);
+		$validFiles = array();
+
+		foreach ($files as $value) {
+			if( parent::isValidExtension($value) ) {
+				array_push($validFiles, $value);
+			}
+		}
+
+        //TODO manter aqui ou utilizar o getQuantityValidScripts()  ?
+        $this->totalValidScripts = sizeof($validFiles);
+
+		return $validFiles;	
+	}
+
+    public function getQuantityValidScripts() {
+        return $this->totalValidScripts;
+    }
+
+    /*
+	public function getQuantityValidScripts() {
 		$files = scandir('shscripts',SCANDIR_SORT_DESCENDING);
 		$validFiles = array();
 
@@ -16,11 +39,8 @@ class Scripts {
 			}
 		}
 
-		return $validFiles;	
+		return sizeof($validFiles);
 	}
+    */
 
-	public function isValidExtension($filename) {
-		$fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
-		return in_array($fileExtension, $this->allowedExtensions);
-	}	
 }

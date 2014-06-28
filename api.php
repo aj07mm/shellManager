@@ -2,20 +2,20 @@
 	require('controller/MainController.php');
 
 	$main = new MainController;
-	$foo = file_get_contents("php://input");
-	$foo = json_decode($foo);
+	$file = file_get_contents("php://input");
+	$file = json_decode($file);
 
-	switch($foo->action){
+	switch($file->action){
 		case 'getScript':
-			echo $main->getScript($foo->filename);	
+			echo $main->getScript($file->filename);
 		break;
 
 		case 'saveScript':
-			echo (int)$main->saveScript($foo->filename,$foo->content);	
+			echo (int)$main->saveScript($file->filename,$file->content);
 		break;
 
 		case 'runScript':
-			echo $main->runScript($foo->filename,$foo->content);	
+			echo $main->runScript($file->filename,$file->content);
 		break;
 	}
 	

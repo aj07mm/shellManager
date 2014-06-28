@@ -1,11 +1,10 @@
 <?php
 
 require('components/AppHelper.php');
+require_once('model/Scripts.php');
 
-class MainController extends AppHelper{
+class MainController extends AppHelper {
 	
-    private $allowedExtensions = array('sh', 'zsh', 'bash');
-
 	public function __construct() {
 	}
 
@@ -15,10 +14,11 @@ class MainController extends AppHelper{
 	}
 
 	public function getScript($filename) {
+        $script = new Scripts();
 
 		$filepath = parent::filePath($filename);
 
-		if( self::isValidExtension($filename) ) {
+		if( $script::isValidExtension($filename) ) {
 	
 			if(file_exists($filepath)) {
 	            $fh = fopen($filepath, "r");
@@ -32,7 +32,7 @@ class MainController extends AppHelper{
 		}	
 	}
 
-	public function saveScript($filename,$content){
+	public function saveScript($filename,$content) {
 
 		$filepath = parent::filePath($filename);
 
@@ -40,7 +40,7 @@ class MainController extends AppHelper{
             
 			$write_file = false;
 
-            if(file_put_contents($filepath,$content)){
+            if(file_put_contents($filepath,$content)) {
             	$write_file = true;
             }
 
@@ -67,11 +67,5 @@ class MainController extends AppHelper{
 		} 
 
 	}
-
-	public function isValidExtension($filename) {
-		$fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
-		return in_array($fileExtension, $this->allowedExtensions);
-	}
-
 
 }
