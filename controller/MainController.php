@@ -58,11 +58,11 @@ class MainController extends AppHelper {
             
 			$exec_file = false;
 
-            if(shell_exec($content)){
-            	$exec_file = true;
+            if($result = shell_exec($content)){
+            	return $result;
             }
 
-            return $exec_file ?: (int)false;
+            return false;	
             
 		} 
 

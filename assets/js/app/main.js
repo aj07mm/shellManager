@@ -81,7 +81,7 @@ myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 			    	content: content
 			    }
 			}).success(function(data, status, headers, config) {
-			    console.log(data);
+			    $scope.output = data
 			}).error(function(data, status, headers, config) {
 			    $scope.status = status;
 			});

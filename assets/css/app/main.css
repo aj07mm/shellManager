@@ -60,6 +60,10 @@ footer {
     min-height: 150px;
 }
 
+#script-output {
+    min-height: 150px;
+}
+
 #feedback {
     margin: 10px;
 }
