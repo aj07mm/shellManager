@@ -12,9 +12,8 @@
 		</ol>
 	</section>
 	<aside>
-		<h2 class="filename-header">{{filename_header}}</h2>
-		<textarea id="script-content" ng-model="data"></textarea>
-		<textarea id="script-output" ng-model="output"></textarea>
+		<h2>{{filename_header || "Select a script" }}</h2>
+		<textarea id="script-content" class="script-interface" ng-model="data"></textarea>
 		<div style="padding-right:22px;">
 			<input ng-click="saveScript(data)" type="button" class="button" value="Save">
 			<input ng-click="runScript(data)" type="button" class="button" value="Run">
@@ -24,4 +23,9 @@
             {{feedback.msg}}
         </section>
 	</aside>
+	<section class="section-output">
+		<h2>Resposta</h2>
+		<textarea id="script-output" class="script-interface" ng-model="output"></textarea>
+	</section>
+	
 </section>	
