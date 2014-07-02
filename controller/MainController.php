@@ -37,7 +37,7 @@ class MainController extends AppHelper {
 		$filepath = parent::filePath($filename);
 
 		if(file_exists($filepath)) {
-
+            
 			$write_file = false;
 
             if(file_put_contents($filepath,$content)) {
@@ -46,26 +46,31 @@ class MainController extends AppHelper {
 
             return $write_file ?: false;
             
-		}else{
-
-			return file_put_contents($filepath.'.sh',$content) ? true : false;
-			
-		}
+		} 
 
 	}
 
-	public function runScript($filename,$content){
+	public function runScript($filename){
 
-        try {
+		$filepath = parent::filePath($filename);
 
-            if($result = shell_exec($content)){
-	       		return $result;
-	        }else{
-	        	return 'Não foi possível executar o script, verifique a sintaxe';
-	        }
+		if(file_exists($filepath)) {
+            
+            try {
 
-        } catch (Exception $e) {
-            return $e->getMessage();
+                $result = shell_exec('sh ' . $filepath);
+                if($result==NULL) {
+                    return 'Não foi possível executar o script, verifique a sintaxe';
+                } else {
+                    return $result;
+                }
+
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+
+		} else {
+            return 'Arquivo ' . $filepath . ' não existe';
         }
 
 	}
