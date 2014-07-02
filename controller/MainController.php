@@ -56,15 +56,22 @@ class MainController extends AppHelper {
 
 		if(file_exists($filepath)) {
             
-			$exec_file = false;
+            try {
 
-            if($result = shell_exec($content)){
-            	return $result;
+                $result = shell_exec('sh ' . $filepath);
+                if($result==NULL) {
+                    return 'Não foi possível executar o script, verifique a sintaxe';
+                } else {
+                    return $result;
+                }
+
+            } catch (Exception $e) {
+                return $e->getMessage();
             }
 
-            return false;	
-            
-		} 
+		} else {
+            return 'Arquivo ' . $filepath . ' não existe';
+        }
 
 	}
 

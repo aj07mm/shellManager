@@ -15,7 +15,7 @@
 		break;
 
 		case 'runScript':
-			echo $main->runScript($file->filename,$file->content);
+            echo $main->runScript($file->filename,$file->content);
 		break;
 	}
 	
