@@ -25,8 +25,9 @@
 			));
 
             //TODO assumindo que getAllScripts() foi chamada
-			$app_controller->render('footer', array('totalScripts' =>
-                                                $model->getQuantityValidScripts()) );
+			$app_controller->render('footer', array(
+				'totalScripts' =>$model->getQuantityValidScripts()
+			));
 		?>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-animate.min.js"></script>

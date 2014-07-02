@@ -37,7 +37,7 @@ class MainController extends AppHelper {
 		$filepath = parent::filePath($filename);
 
 		if(file_exists($filepath)) {
-            
+
 			$write_file = false;
 
             if(file_put_contents($filepath,$content)) {
@@ -46,13 +46,21 @@ class MainController extends AppHelper {
 
             return $write_file ?: false;
             
-		} 
+		}else{
+
+			return file_put_contents($filepath.'.sh',$content) ? true : false;
+			
+		}
 
 	}
 
 	public function runScript($filename,$content){
 
-		$filepath = parent::filePath($filename);
+		if($result = shell_exec($content)){
+       		return $result;
+        }
+
+	/*	$filepath = parent::filePath($filename);
 
 		if(file_exists($filepath)) {
             
@@ -65,7 +73,7 @@ class MainController extends AppHelper {
             return false;	
             
 		} 
-
+*/
 	}
 
 }

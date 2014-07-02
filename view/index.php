@@ -14,13 +14,14 @@
 	<aside>
 		<h2>{{filename_header || "Select a script" }}</h2>
 		<textarea id="script-content" class="script-interface" ng-model="data"></textarea>
-		<div style="padding-right:22px;">
+		<div id="input-tab">
+			<a ng-click="createScript(data)" href="javascript:void(0)">Criar novo script</a>
 			<input ng-click="saveScript(data)" type="button" class="button" value="Save">
 			<input ng-click="runScript(data)" type="button" class="button" value="Run">
 		</div>
 		<br />
         <section id="feedback"  ng-show="feedback" ng-class="feedback.class">
-            {{feedback.msg}}
+            {{ feedback.msg }}
         </section>
 	</aside>
 	<section class="section-output">

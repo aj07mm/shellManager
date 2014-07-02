@@ -46,6 +46,11 @@ myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 			});
 		};
 
+		$scope.createScript = function(filename,content){
+			$scope.filename_header = prompt();
+		}
+
+		//if exists save else update
 		$scope.saveScript = function(content) {
 
 			$http({
@@ -57,14 +62,12 @@ myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 			    	content: content
 			    }
 			}).success(function(data, status, headers, config) {
-
                 if(data == 1) {
                     $scope.feedback = {msg: MESSAGES.SUCCESS_SCRIPT_SAVE, class: 'success'};
+                    location.reload();
                 } else {
                     $scope.feedback = {msg: MESSAGES.FAIL_SCRIPT_SAVE, class: 'fail'};
                 }
-
-
 			}).error(function(data, status, headers, config) {
 			    $scope.status = status;
 			});

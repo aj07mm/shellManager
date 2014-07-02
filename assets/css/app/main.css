@@ -28,6 +28,7 @@ body{
 		color: blue;
 		cursor: pointer;
 	}
+
 h2{
 	margin: 0px 0px 0px 10px;
 }
@@ -51,6 +52,12 @@ textarea{
 .script-interface{
 	color: yellow;
 	background-color: black;
+}
+
+#input-tab{
+	padding-right:22px;
+	padding-left: 12px;
+
 }
 
 
