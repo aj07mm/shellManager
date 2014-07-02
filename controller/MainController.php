@@ -56,24 +56,18 @@ class MainController extends AppHelper {
 
 	public function runScript($filename,$content){
 
-		if($result = shell_exec($content)){
-       		return $result;
-        }
-
-	/*	$filepath = parent::filePath($filename);
-
-		if(file_exists($filepath)) {
-            
-			$exec_file = false;
+        try {
 
             if($result = shell_exec($content)){
-            	return $result;
-            }
+	       		return $result;
+	        }else{
+	        	return 'Não foi possível executar o script, verifique a sintaxe';
+	        }
 
-            return false;	
-            
-		} 
-*/
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
 	}
 
 }
