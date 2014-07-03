@@ -36,7 +36,6 @@
 		?>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-animate.min.js"></script>
-	<script type="text/javascript" src="assets/js/filetree/jquery.js"></script>
 	<script type="text/javascript" src="assets/js/app/main.js"></script>
 </body>
 </html>
