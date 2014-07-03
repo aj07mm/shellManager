@@ -4,8 +4,6 @@
     //TODO implementar singleton
 class Scripts extends ScriptHelper {
 
-    private $totalValidScripts;
-
 	public function __construct() { }
 
 	public function listAllScripts() {
@@ -18,17 +16,9 @@ class Scripts extends ScriptHelper {
 			}
 		}
 
-        //TODO manter aqui ou utilizar o getQuantityValidScripts()  ?
-        $this->totalValidScripts = sizeof($validFiles);
-
-		return $validFiles;	
+		return $validFiles;
 	}
 
-    public function getQuantityValidScripts() {
-        return $this->totalValidScripts;
-    }
-
-    /*
 	public function getQuantityValidScripts() {
 		$files = scandir(parent::getFolderScripts(), SCANDIR_SORT_DESCENDING);
 		$validFiles = array();
@@ -41,6 +31,5 @@ class Scripts extends ScriptHelper {
 
 		return sizeof($validFiles);
 	}
-    */
 
 }
