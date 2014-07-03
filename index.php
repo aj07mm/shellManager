@@ -2,13 +2,14 @@
     require('model/Scripts.php');
 	require('controller/MainController.php');
 	require('controller/AppController.php');
-	try {
-		$model = new Scripts;
-		$controller = new MainController;
-		$app_controller = new AppController;
-		} catch(Exception $e) {
-			exit($e->getMessage());
-		}
+
+    $model = new Scripts;
+    $controller = new MainController;
+    try {
+        $app_controller = new AppController;
+    } catch(Exception $e) {
+        exit($e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
