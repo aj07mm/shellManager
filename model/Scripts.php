@@ -9,7 +9,7 @@ class Scripts extends ScriptHelper {
 	public function __construct() { }
 
 	public function listAllScripts() {
-		$files = scandir('shscripts',SCANDIR_SORT_DESCENDING);
+		$files = scandir(parent::getFolderScripts(), SCANDIR_SORT_DESCENDING);
 		$validFiles = array();
 
 		foreach ($files as $value) {
@@ -30,7 +30,7 @@ class Scripts extends ScriptHelper {
 
     /*
 	public function getQuantityValidScripts() {
-		$files = scandir('shscripts',SCANDIR_SORT_DESCENDING);
+		$files = scandir(parent::getFolderScripts(), SCANDIR_SORT_DESCENDING);
 		$validFiles = array();
 
 		foreach ($files as $value) {

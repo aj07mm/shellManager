@@ -36,17 +36,20 @@ class MainController extends AppHelper {
 
 		$filepath = parent::filePath($filename);
 
+
 		if(file_exists($filepath)) {
-            
+
 			$write_file = false;
 
-            if(file_put_contents($filepath,$content)) {
+            if(file_put_contents($filepath, $content, LOCK_EX)) {
             	$write_file = true;
             }
 
             return $write_file ?: false;
             
-		} 
+		} else {
+            return file_put_contents($filepath, $content, LOCK_EX) ? true : false;
+        }
 
 	}
 
