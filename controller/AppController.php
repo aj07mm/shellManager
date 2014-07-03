@@ -1,10 +1,12 @@
 <?php
-	class AppController {
+require('Messages.php');
+
+class AppController {
 
 		const VIEW_PATH = 'view';
 
 		public function __construct(){
-			$this->getOS();
+            $this->getOS();
             $this->checkFuncDeps();
             $this->folderIsWritable();
 		}
@@ -26,7 +28,7 @@
          */
         private function folderIsWritable() {
             $script = new Scripts();
-            if(!is_dir($script::SCRIPTS_FOLDER) || !is_writable($script::SCRIPTS_FOLDER)) throw new Exception('O diret&oacute;rio dos scripts ( ' . $script::SCRIPTS_FOLDER . ' ) n&atilde;o &eacute; v&aacute;lido ou n&atilde;o est&aacute; com permiss&atilde;o de escrita');
+            if(!is_dir($script::SCRIPTS_FOLDER) || !is_writable($script::SCRIPTS_FOLDER)) throw new Exception(DIR_SCRIPTS_WRITE_ERROR);
         }
 
         /**
@@ -36,7 +38,7 @@
         private function getOS() {
 			
 			if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			    throw new Exception('shellManager requires *nix server!');
+			    throw new Exception(INVALID_OS);
 			}
 
 		}
@@ -47,8 +49,8 @@
          */
         private function checkFuncDeps() {
             if(!function_exists('shell_exec')) {
-                throw new Exception('shellManager requires a "shell_exec" function enable on server!');
+                throw new Exception(FUNC_EXEC_NOT_ALLOWED);
             }
         }
 
-	}
+}
