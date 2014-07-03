@@ -50,7 +50,10 @@ myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 			$scope.filename_header = prompt('Informe o nome do arquivo');
 		}
 
-		//if exists save else update
+        /**
+         * saveScript if exists save else update
+         * @param content
+         */
 		$scope.saveScript = function(content) {
 
 			$http({
