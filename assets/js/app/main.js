@@ -5,7 +5,6 @@ var myApp = angular.module('myApp', ['ngAnimate']);
 myApp.constant('CONFIG', {APP_NAME: 'shellManager', APP_VERSION: '0.0.0', URL: 'http://localhost/shellManager/'});
 myApp.constant('MESSAGES',  {SUCCESS_SCRIPT_SAVE: 'Script salvo com sucesso', FAIL_SCRIPT_SAVE: 'Ocorreu um erro ao salvar o script'});
 
-
 myApp.factory('Avengers', function() {
 	var Avengers = {
 		name: 123
@@ -28,10 +27,12 @@ myApp.directive("file", function() {
 //TODO como passar Avengers para dentro do controller ???
 myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 
-        $scope.feedback = null;
+		$scope.feedback = null;
 
 		$scope.requestAjax = function(filename) {
+
 			$scope.filename_header = filename;
+
 			$http({
 			    url: CONFIG.URL + 'api.php',
 			    method: 'POST',
@@ -46,8 +47,29 @@ myApp.controller("ScriptCtrl", function($scope, $http, CONFIG, MESSAGES) {
 			});
 		};
 
-		$scope.createScript = function(filename,content){
-			$scope.filename_header = prompt('Informe o nome do arquivo');
+		$scope.createScript = function(content){
+
+			if($scope.filename_header != undefined){
+				$http({
+					url: CONFIG.URL + 'api.php',
+					method: 'POST',
+					data: {
+						action:'getScript',
+						filename: $scope.filename_header
+					}
+				}).success(function(data, status, header, config){
+					//console.log($scope.data.trim() , content.trim());
+					if(data.trim() != content.trim()){
+						if(confirm('Seu script nao foi salvo ainda! Deseja continuar?')){
+							$scope.filename_header = prompt('Entre com o nome do script');
+							$scope.data = '';
+						}
+					}
+				});
+			}else{
+				$scope.filename_header = prompt('Entre com o nome do script');
+			}
+			
 		}
 
         /**
